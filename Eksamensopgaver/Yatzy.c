@@ -143,8 +143,8 @@ void pairs(int dice[], int n){
             }
             printf("-- %d \n", results[resultindex]);
         }
+        resultindex++;
     }
-    resultindex++;
 }
 
 void alike(int dice[], int n){
@@ -164,7 +164,7 @@ void alike(int dice[], int n){
                         }
                         printf("-- %d \n", results[resultindex]);
                         break;
-                    }
+                    } 
                 }                
             }    
             current = 0;
@@ -194,10 +194,10 @@ void smallBig(int dice[], int n){
             }
         }
         if (exists){
-            if (resultindex == 9){
+            if (resultindex == 10){
                 results[resultindex] = 15;
                 printf("Lille: ");
-            } else {
+            } else if (resultindex == 11) {
                 results[resultindex] = 20;
                 printf("Stor: ");
             }
