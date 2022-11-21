@@ -48,7 +48,6 @@ void merge(int arr[], int l, int m, int r){
         for (k = j; k < r - m - 1; k++)
         {
             arr[l + i + k] = arr2[k];
-            // printf("Her er noget %d \n", arr2[k]);
         } 
         
     } else {
