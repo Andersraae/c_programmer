@@ -19,6 +19,10 @@ int main(int argc, char const *argv[])
 {
     srand(time(NULL));
     results = (int *) malloc(ROUNDS * sizeof(int));
+    if (*results == NULL){ // Sikrer at der er allokeret plads til results
+        exit(EXIT_FAILURE);
+    }
+
     resultindex = 0;
     int total = 0;
     int n = 0;
@@ -35,6 +39,9 @@ int main(int argc, char const *argv[])
     
     printf("\n");
     int *dice = (int *) malloc(n * sizeof(int));
+    if (*dice == NULL){ 
+        exit(EXIT_FAILURE);
+    }
 
     printf("printer terninger: \n");
     oneToSix(dice, n);
@@ -83,6 +90,9 @@ int main(int argc, char const *argv[])
         total += results[i];
     }
     printf("TOTAL: %d", total);
+
+    free(results); // Frigør allokeret plads
+    free(dice);
     
     return 0;
 }
@@ -208,7 +218,6 @@ void smallBig(int dice[], int n){
         }
         resultindex++;
     }
-    
 }
 
 void fullHouse(int dice[], int n){
